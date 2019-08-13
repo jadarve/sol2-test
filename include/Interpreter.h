@@ -21,6 +21,13 @@ public:
         m_lua.script(code);
     }
 
+    template<typename T>
+    sol::load_result load(T&& code) {
+        static_assert(std::is_convertible<T, std::string>::value, "typename S must be convertible to std::string");
+
+        return m_lua.load(code);
+    }
+
     void runFile(const std::string& fileName);
 
     template<typename T, typename S>

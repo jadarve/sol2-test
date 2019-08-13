@@ -26,8 +26,17 @@ public:
 
     static void registerTo(script::Interpreter& interpreter);
 
+    void setWidth(const uint32_t width);
+    uint32_t getWidth() const noexcept;
+
+    void setHeight(const uint32_t height);
+    uint32_t getHeight() const noexcept;
+    
     void setFunctionName(const std::string& functionName);
     std::string getFunctionName() const noexcept;
+
+
+    void onInit();
 
 private:
     script::NodeDescriptor m_descriptor;

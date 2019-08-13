@@ -12,7 +12,9 @@ void Node::registerTo(script::Interpreter& interpreter) {
 
     tableNamespace.new_usertype<script::Node>("Node",
         sol::constructors<script::Node(const script::NodeDescriptor&)>(),
-        "functionName", sol::property(&Node::getFunctionName, &Node::setFunctionName));
+        "functionName", sol::property(&Node::getFunctionName, &Node::setFunctionName),
+        "width", sol::property(&Node::getWidth, &Node::setWidth),
+        "height", sol::property(&Node::getHeight, &Node::setHeight));
 }
 
 Node::Node(const NodeDescriptor& descriptor) :
@@ -28,6 +30,32 @@ void Node::setFunctionName(const std::string& functionName) {
 
 std::string Node::getFunctionName() const noexcept {
     return m_functionName;
+}
+
+
+void Node::setWidth(const uint32_t width) {
+    m_descriptor.setWidth(width);
+}
+
+
+uint32_t Node::getWidth() const noexcept {
+    return m_descriptor.getWidth();
+}
+
+
+void Node::setHeight(const uint32_t height) {
+    m_descriptor.setHeight(height);
+}
+
+
+uint32_t Node::getHeight() const noexcept {
+    return m_descriptor.getHeight();
+}
+
+
+void Node::onInit() {
+
+    // call interpreter here!
 }
 
 } // namespace script
