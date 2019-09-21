@@ -9,11 +9,11 @@ jobs:
     steps:
     - name: build dir
       run: mkdir build
-    - name: go to build
-      run: cd build
     - name: pwd
       run: echo "$(pwd)"
     - name: cmake
-      run: cmake ..
-    - name: make
-      run: make -j
+      working-directory: ./build
+      run: |
+        echo "$(pwd)"
+        cmake ..
+        make -j
