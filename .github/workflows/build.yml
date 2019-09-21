@@ -1,0 +1,16 @@
+name: C/C++ CI
+
+on: [push]
+
+jobs:
+  linux_cpp:
+    name: Linux C++
+    runs-on: ubuntu-latest
+    steps:
+    - name: Building
+      run: |
+        mkdir build
+        cd build
+        echo "$(ls -la)"
+        cmake ..
+        make -j
