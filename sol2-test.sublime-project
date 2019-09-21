@@ -1,0 +1,35 @@
+{
+    "folders" : [
+        {
+            "path" : ".",
+            "folder_exclude_patterns" : [
+                "build"
+            ]
+        }
+        
+    ],
+    "settings" : {
+        "ecc_common_flags": [
+            "-DCMAKE_CXX_COMPILER=clang++",
+            "-DCMAKE_SYSTEM_NAME=Linux",
+            "-std=c++17",
+            "-DSOL_ALL_SAFETIES_ON=1",
+            "-I$project_base_path/include",
+            "-I$project_base_path/thirdparty",
+            "-I$project_base_path/thirdparty/lua-5.3.5/src"
+        ],
+        "use_libclang": true,
+        "show_type_info": false,
+        // "easy_clang_complete_verbose": true,
+        "cpp_flags" : [ "-std=c++17" ],
+        "flags_sources": [
+            {
+               "file": "./CMakeLists.txt",
+               "search_in": "."
+            },
+        ],
+    },
+    "build_systems" : [
+
+    ]
+}
