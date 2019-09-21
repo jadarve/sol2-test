@@ -7,12 +7,14 @@ jobs:
     name: Linux C++
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v1
     - name: build dir
       run: mkdir build
     - name: pwd
       run: echo "$(pwd)"
     - name: cmake
+      working-directory: ./build
       run: |
         echo "$(pwd)"
-        cmake .
+        cmake ..
         make -j
