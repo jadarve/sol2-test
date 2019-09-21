@@ -12,8 +12,7 @@ jobs:
     - name: pwd
       run: echo "$(pwd)"
     - name: cmake
-      working-directory: ./build
       run: |
         echo "$(pwd)"
-        cmake ..
+        cmake .
         make -j
